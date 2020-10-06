@@ -1,0 +1,19 @@
+\section{second argument of `main' should be `char **'}\label{sec:main-second-arg}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+int main(int argc, char* argv) {
+  return 0;
+}
+\end{lstlisting}
+\warnmsg{second argument of `main' should be `char **' [-Wmain]}
+\label{ex:main-second-arg}
+\end{figure}
+
+The \func{main} function is special as it serves as the entry point to your program.
+It must either take zero parameters (if you don't need parameters) or two (if you do).
+In the latter case, the two parameters must be of type \keyword{int} and \keyword{char**}.
+This error says that the second parameter has the wrong type.
+
+Despite what the error message shows, it is more common to see the signature as \code{int main(int argc, char* argv[])} instead of \code{int main(int argc, char** argv)}.
+\newpage

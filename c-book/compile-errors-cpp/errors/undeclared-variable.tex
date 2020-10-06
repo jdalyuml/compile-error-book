@@ -1,0 +1,38 @@
+
+\section{use of undeclared identifier}\label{sec:undeclared-variable}
+
+\begin{figure}
+\begin{lstlisting}
+void loopUpToN(int n) {
+  while (i < n) {
+    printf("%d\n", i);
+    i++;
+  }
+}
+\end{lstlisting}
+
+\errmsg{'i' undeclared (first use in this function)}
+\label{ex:undeclared-variable}
+\end{figure}
+
+This error means that the compiler doesn't know what a term means.  This is often because you are trying to use a variable without declaring it.
+
+In Example \ref{ex:undeclared-variable} we can see that the \code{i} variable was undeclared.
+We can fix this by adding \code{int i = 0;} before the \keyword{while} loop.
+
+\begin{figure}
+\begin{lstlisting}
+bool shouldContinue(char response) {
+  return response == 'y' || response == Y;
+}
+\end{lstlisting}
+
+\errmsg{'Y' undeclared (first use in this function)}
+\label{ex:unquoted-char}
+\end{figure}
+
+In Example \ref{ex:unquoted-char} the same error actually has a different cause.
+Here, we forgot the single quotes around the character \code{'F'} so the compiler thinks that \code{F} is a variable rather than a character constant.
+This can be fixed by adding the missing quotes.
+
+\newpage

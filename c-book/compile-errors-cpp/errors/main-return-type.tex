@@ -1,0 +1,17 @@
+\section{return type of `main' is not `int'}\label{sec:main-return-type}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+void main(int argc, char* argv[]) {
+
+}
+\end{lstlisting}
+\warnmsg{return type of `main' is not `int' [-Wmain]}
+\label{ex:main-return-type}
+\end{figure}
+
+The \func{main} function is special as it serves as the entry point to your program.
+The return type of \func{main} is \textbf{required} to be \keyword{int}.
+This is different from other languages, like Java, where the \func{main} function is \keyword{void}.
+This can be easily fixed by changing the signature to \code{int main(int argc, char* argv[])} and adding a \keyword{return} statement to the end of the function.
+\newpage

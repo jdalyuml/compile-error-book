@@ -1,0 +1,16 @@
+\section{enumerator value is not an integer}\label{sec:enum-int-type}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+enum suits { CLUB=1.0, DIAMOND, HEART, SPADE };
+typedef suits Suit;
+\end{lstlisting}
+\errmsg{enumerator value for `CLUB' is not an integer constant}
+\label{ex:enum-int-type}
+\end{figure}
+
+The values for enumeration constants are required to be integers.
+This means that \keyword{double} values like \code{1.0} are not allowed.
+This can be fixed by changing the value from \code{1.0} to \code{1}.
+Note that you \emph{are} allowed to use characters, like \code{'c'} instead.
+\newpage

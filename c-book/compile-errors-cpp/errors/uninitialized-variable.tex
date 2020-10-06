@@ -1,0 +1,22 @@
+\section{use of uninitialized variable}\label{sec:uninit-var}
+
+\begin{figure}
+\begin{lstlisting}
+void loopUpToN(int n) {
+  int i;
+  while (i < n) {
+    printf("%d\n", i);
+    i++;
+  }
+}
+\end{lstlisting}
+
+\warnmsg{variable 'i' is uninitialized when used here [-Wuninitialized]}
+\label{ex:uninit-var}
+\end{figure}
+
+This warning means that you declared, but did not initialize, a variable.
+You fix this by giving the variable an initial value.
+In Example \ref{ex:uninit-var} this can be done by initializing at declaration with \code{int i = 0;}.
+
+\newpage

@@ -1,0 +1,36 @@
+\section{control reaches end of non-void function}\label{sec:missing-return}
+
+\begin{figure}
+\begin{lstlisting}
+int printHouse() {
+	printf("/ \\\n");
+	printf("|_|\n");
+}
+\end{lstlisting}
+\warnmsg{control reaches end of non-void function[-Wreturn-type]}
+\label{ex:func-not-void}
+\end{figure}
+
+\begin{figure}
+\begin{lstlisting}
+int signum(int num) {
+  if (num > 0) {
+    return +1;
+  } else if (num < 0) {
+    return -1;
+  }
+}
+\end{lstlisting}
+\warnmsg{control reaches end of non-void function[-Wreturn-type]}
+\label{ex:missing-return}
+\end{figure}
+
+This warning means that you have a function with a return type other than \keyword{void} (\keyword{int} in this example), but it is possible to reach the end of the function without hitting a \keyword{return} statement.
+
+This can be caused in one of two ways.
+In Example \ref{ex:func-not-void}, the \func{printHouse} function doesn't compute any results.
+In this case, the warning can be resolved by changing the return type to \keyword{void}.
+In Example \ref{ex:missing-return}, the \func{signum} function can end without hitting either of the \keyword{return} statements because of a missing \keyword{else} case (for the number 0).
+This can be fixed by either adding an \keyword{else} case with it's own \keyword{return} or by adding a \keyword{return} statement outside of the conditional.
+
+\newpage

@@ -1,0 +1,19 @@
+\section{conflicting types for function}\label{sec:conflicting-types}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+int printHouse(void);
+
+void printHouse(void) {
+	printf("/ \\\n");
+	printf("|_|\n");
+}
+\end{lstlisting}
+\errmsg{conflicting types for 'printHouse'}
+\label{ex:conflict-types}
+\end{figure}
+
+This error means that the function declaration and implementation have different return types, but they are required to have the same type.
+In Example \ref{ex:conflict-types}, this can be fixed by changing the declared type of \func{printHouse} from \keyword{int} to \keyword{void}.
+
+\newpage

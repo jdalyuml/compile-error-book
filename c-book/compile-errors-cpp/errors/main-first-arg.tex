@@ -1,0 +1,18 @@
+\section{first argument of `main' should be `int'}\label{sec:main-first-arg}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+int main(double argc, char* argv[]) {
+  return 0;
+}
+\end{lstlisting}
+\warnmsg{first argument of `main' should be `char **' [-Wmain]}
+\label{ex:main-first-arg}
+\end{figure}
+
+The \func{main} function is special as it serves as the entry point to your program.
+It must either take zero parameters (if you don't need parameters) or two (if you do).
+In the latter case, the two parameters must be of type \keyword{int} and \keyword{char**}.
+This error says that the first parameter has the wrong type.
+This problem can be fixed by changing the signature of \func{main} to \code{int main(int argc, char** argv)}.
+\newpage

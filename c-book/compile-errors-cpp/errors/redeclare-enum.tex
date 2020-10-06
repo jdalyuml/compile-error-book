@@ -1,0 +1,15 @@
+\section{redeclaration of enumerator}\label{sec:redeclare-enum}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+enum suits { CLUB, DIAMOND, HEART, SPADE, CLUB };
+typedef suits Suit;
+\end{lstlisting}
+\errmsg{redeclaration of enumerator `CLUB'}
+\label{ex:redeclare-enum}
+\end{figure}
+
+This error message indicates that you have given two enumeration constants the same name.
+Each constant is required to be unique.
+In this case, we can fix this by removing the second instance of \code{CLUB}.
+\newpage

@@ -1,0 +1,17 @@
+\section{parameter names (without types) in function declaration}\label{sec:typeless-params}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+void printNum(n);
+\end{lstlisting}
+\warnmsg{parameter names (without types) in function declaration}
+\label{ex:typeless-params}
+\end{figure}
+
+This warning means that you declared a function that takes parameters but didn't say what types those parameters are supposed to have.
+This is similar to \ref{sec:default-param-type} except that it is for the function declaration rather than the function implementation.
+You can fix this by supplying the missing types for the parameters.
+
+In Example \ref{ex:typeless-params}, the parameter \variable{n} doesn't have a type.
+We can fix this by writing \code{int n} instead.
+\newpage

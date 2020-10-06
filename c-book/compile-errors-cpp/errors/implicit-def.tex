@@ -1,0 +1,23 @@
+\section{implicit declaration of function}\label{sec:implicit-def}
+
+\begin{figure}
+\begin{lstlisting}
+#include <stdio.h>
+
+int main(void) {
+  printHouse();
+}
+
+void printHouse(void) {
+  printf("/ \\\n");
+  printf("|_|\n");
+}
+\end{lstlisting}
+\warnmsg{implicit declaration of function 'printHouse'; did you mean `printf'? [-Wimplicit-function-declaration]}
+\label{ex:missing-dec}
+\end{figure}
+
+This error message means that you have called a function that has not been declared yet, but will be declared later in the program.
+In Example \ref{ex:missing-dec} this can be solved by adding a function declaration for \func{printHouse} before the \func{main} function (or in a header file that we include).  This example will also cause a conflicting types error (Section \ref{sec:conflicting-types}) because the compiler assumes that the implicitly defined function has type \keyword{int} but the actual implementation is \keyword{void}.
+
+\newpage

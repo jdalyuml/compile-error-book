@@ -1,0 +1,18 @@
+\section{main takes only zero or two arguments}\label{sec:main-two-args}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+int main(int argc) {
+  return 0;
+}
+\end{lstlisting}
+\warnmsg{`main' takes only zero or two arguments [-Wmain]}
+\label{ex:main-two-args}
+\end{figure}
+
+The \func{main} function is special as it serves as the entry point to your program.
+It must either take zero parameters (if you don't need parameters) or two (if you do).
+In the latter case, the two parameters must be of type \keyword{int} and \keyword{char**}.
+
+We can fix this by changing the signature of our \func{main} function to either \code{int main(int argc, const char* argv[])} or \code{int main(void)} depending on whether or not our program needs to accept parameters.
+\newpage

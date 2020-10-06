@@ -1,0 +1,22 @@
+\section{too few arguments to function call}\label{sec:missing-args}
+
+\begin{figure}
+\begin{lstlisting}
+void printNum(int num) {
+  printf("%d\n", num);
+}
+
+int main(void) {
+  printNum();
+  return 0;
+}
+\end{lstlisting}
+
+\errmsg{too few arguments to function 'printNum'}
+\label{ex:missing-args}
+\end{figure}
+
+This error means that you called a function that expects arguments, but you didn't supply enough (or in this case any) of them.
+In Example \ref{ex:missing-args} this can be fixed by inserting a number between the parenthesis in the call to \func{printNum}.
+
+\newpage

@@ -1,0 +1,88 @@
+\documentclass[10pt]{article}
+% Alternative Settings:
+%		a4paper / letter
+
+
+%\usepackage[USenglish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+
+\usepackage{lmodern}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\usepackage{listings}
+
+\renewcommand{\figurename}{Ex}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+\lstset{
+  language=c++,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\color{ForestGreen},
+  tabsize=4,
+  columns=flexible,
+  keepspaces=true,
+  keywordstyle=\color{Blue},
+  stringstyle=\color{Maroon},
+  showstringspaces=false,
+  breaklines=true
+}
+
+\newcommand{\errmsg}[1]{\caption{\texttt{\textcolor{red}{error:} #1}}}
+\newcommand{\warnmsg}[1]{\caption{\texttt{\textcolor{purple}{warning:} #1}}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\func}[1]{\code{#1}}
+\newcommand{\variable}[1]{\code{#1}}
+\newcommand{\keyword}[1]{\code{#1}}
+
+\title{Common Compiler Errors in C/C++}
+\author{James Daly}
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\input{errors/case-type}
+
+\input{errors/conflicting-types}
+
+\input{errors/func-no-return}
+
+\input{errors/enum-int-type}
+
+\input{errors/main-first-arg}
+
+\input{errors/implicit-def}
+
+\input{errors/main-two-args}
+
+\input{errors/typeless-params}
+
+\input{errors/redeclare-enum}
+
+\input{errors/main-return-type}
+
+\input{errors/main-second-arg}
+
+\input{errors/switch-type}
+
+\input{errors/missing-args}
+
+\input{errors/default-param-type}
+
+\input{errors/undeclared-variable}
+
+\input{errors/unknown-type}
+
+\input{errors/uninitialized-variable}
+\end{document}

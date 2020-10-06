@@ -1,0 +1,19 @@
+\section{type of parameter defaults to 'int'}\label{sec:default-param-type}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+void printNum(n) {
+  printf("%d\n", n);
+}
+\end{lstlisting}
+\warnmsg{type of 'n' defaults to 'int' [-Wimplicit-int]}
+\label{ex:default-param-type}
+\end{figure}
+
+This warning means that you have a function that has parameters listed, but the parameters do not have types.
+This warning is similar to \ref{sec:typeless-params} except for the function implementation rather than the function declaration.
+You can fix this by supplying types for the parameters.
+
+In Example \ref{ex:default-param-type}, the parameter \variable{n} doesn't have a type.
+We can fix this by writing \code{int n} instead.
+\newpage

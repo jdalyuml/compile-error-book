@@ -1,0 +1,33 @@
+\section{switch quantity not an integer}\label{sec:switch-type}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+enum suits { CLUB, DIAMOND, HEART, SPADE, UNKNOWN_SUIT };
+typedef enum suits Suit;
+
+Suit parseSuit(char str[]) {
+  switch (str) {
+  case "Club":
+    return CLUB;
+  case "Diamond":
+    return DIAMOND;
+  case "Heart":
+    return HEART;
+  case "Spade":
+    return SPADE;
+  default:
+    return UNKNOWN_SUIT;
+  }
+}
+\end{lstlisting}
+\errmsg{switch quantity not an integer}
+\label{ex:switch-type}
+\end{figure}
+
+The expressions used in \keyword{switch} statements must be of an integer type, such as \keyword{int}, \keyword{char}, or an \keyword{enum}.
+This error message means that the expression is not of an allowable type, in this case a string (\keyword{char*}).
+This error will often be paired with a \code{case label does not reduce to an integer constant} error (\ref{sec:case-type}), as it does in Example \ref{ex:switch-type}, because the case labels will also be of an illegal type.
+
+The common way to fix this problem is to replace the \keyword{switch} with \keyword{if-else} blocks since \keyword{if} conditions will allow for more general comparisons.
+Some problems, such as this one, might be able to be fixed by \keyword{switch}ing on \code{str[0]} and using only the \keyword{char}s \code{'C'}, \code{'D'}, \code{'H'}, and \code{'S'} as the case labels.
+\newpage

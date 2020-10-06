@@ -1,0 +1,20 @@
+\section{unknown type name}\label{sec:unknown-type}
+
+\begin{figure}[htb]
+\begin{lstlisting}
+int main(int argc, char* argv[]) {
+  foo x;
+  return 0;
+}
+\end{lstlisting}
+\errmsg{unknown type name `foo'}
+\label{ex:unknown-type}
+\end{figure}
+
+In C and C++, types need to be defined before they can be used.
+This error message means that the compiler cannot find the type indicated.
+This can be fixed in a couple different ways.
+If the type is defined in another file, you can \code{\#include} the header file that defines it.
+If the type exists under a different name, you can use the \keyword{typedef} keyword to rename it.
+Finally, in C++ you can define a \keyword{class} of the given type.
+\newpage
