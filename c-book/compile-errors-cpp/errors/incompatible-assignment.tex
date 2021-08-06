@@ -1,0 +1,24 @@
+\section{assigning from incompatible type}\label{sec:incompatible-assignment}
+
+\begin{figure}
+\begin{lstlisting}
+#include <stdio.h>
+
+int main(int argc, const char* arv[]) {
+	double n = 5;
+	double *pN;
+	pN = n;
+	printf("Number: %d\n", *pN);
+	return 0;
+}
+\end{lstlisting}
+\errmsg{assigning to 'double *' from incompatible type 'double'; take the address with \&}
+\label{ex:incompatible-assignment}
+\end{figure}
+
+This error means that you are attempting to assign a variable of one type with an expression of a different type.
+In this case, the problem is that you forgot to get the address of \code{n} with the address-of operator \code{\&}, so it is trying to assign a \code{double} to a \code{double*} variable.
+
+This error is similar to an incompatible initialization (Section \ref{sec:incompatible-initialization}) except in that case you are trying to initialize a variable rather than assign it a new value.
+
+\newpage

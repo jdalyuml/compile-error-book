@@ -1,0 +1,24 @@
+\section{incompatible integer to pointer conversion}\label{sec:incompatible-conversion}
+
+\begin{figure}
+\begin{lstlisting}
+#include <stdio.h>
+
+int main(int argc, const char* arv[]) {
+	int n = 5;
+	int *pN = n;
+	printf("Number: %d\n", *pN);
+	return 0;
+}
+\end{lstlisting}
+\warnmsg{incompatible integer to pointer conversion initializing 'int *' with an expression of type 'int'; take the address with \& [-Wint-conversion]}
+\label{ex:incompatible-conversion}
+\end{figure}
+
+This warning means that you are attempting to assign an integer value to a pointer, which is a different type.
+In this case, the problem is that you forgot to get the address of \code{n} with the address-of operator \code{\&}.
+
+This is similar to initializing with a compatible type (Section \ref{sec:incompatible-initializing}).
+There is a conversion from \code{int}s to pointers, but it is not recommended (hence the warning).
+
+\newpage

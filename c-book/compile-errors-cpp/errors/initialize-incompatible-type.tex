@@ -1,0 +1,25 @@
+\section{initializing with an expression of incompatible type}\label{sec:incompatible-initializing}
+
+\begin{figure}
+\begin{lstlisting}
+#include <stdio.h>
+
+int main(int argc, const char* arv[]) {
+	double n = 5;
+	double *pN = n;
+	printf("Number: %d\n", *pN);
+	return 0;
+}
+\end{lstlisting}
+\errmsg{initializing 'double *' with an expression of incompatible type 'double'; take the address with \&}
+\label{ex:incompatible-initializing}
+\end{figure}
+
+This error means that you are attempting to initialize a variable of one type with an expression of a different type.
+In this case, the problem is that you forgot to get the address of \code{n} with the address-of operator \code{\&}, so it is trying to assign a \code{double} to a \code{double*} variable.
+
+This error is similar to both the incompatible integer to pointer conversion (Section \ref{sec:incompatible-conversion}) and assigning from an incompatible type (Section \ref{sec:incompatible-assignment}).
+In the former case, \code{int}s have a special conversion to a pointer, but using it is discouraged, so a warning is generated instead.
+In the latter case, you are assigning it a new value rather than initializing it.
+
+\newpage
