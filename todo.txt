@@ -1,0 +1,2 @@
+warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+error: expected identifier or '('
